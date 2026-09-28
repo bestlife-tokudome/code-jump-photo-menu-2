@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+$bp_sp: 1024px;
+$width_mv: 1000px;
+$width_content: 800px;
+$bg_color: #F5F5F5;
+$font_color: #333;
+$font-size_large: 18px;
+$font-size_mid: 14px;
+$section_margin: 60px;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $font_color;
+}
+
+li {
+    list-style: none;
+    list-style-position: inside;
+}
+
+body {
+    max-width: $width_mv;
+    margin: 0 auto;
+}
+
+.wrapper {
+    margin-bottom: 60px;
+}
+
+.container {
+    width: $width_content;
+    margin: 0 auto;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: $font-size_large;
+}
+
+header {
+    padding: 15px 0;
+
+    img {
+        width: 180px;
+    }
+}
+
+.main-visual__image {
+    width: $width_mv;
+}
+
+.index {
+
+    &__container {
+        background-color: $bg_color;
+        padding: 60px;
+        justify-items: center;
+    }
+
+    &__list {
+        border: 1px solid $font_color;
+        padding: 30px 137px;
+
+        li {
+            font-size: $font-size_mid;
+            color: $font_color;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.photo {
+
+    &__container ul{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+
+        li {
+            width: calc( (100% - 15px) / 2);
+            margin-bottom: 15px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.detail {
+    &__container {
+        background-color: $bg_color;
+        justify-items: center;
+        padding: 60px;
+    }
+
+    &__text {
+        display: flex;
+    }
+
+    &__info {
+        padding-right: 40px;
+        margin-right: 40px;
+        border-right: 1px solid $font_color;
+        width: 240px;
+
+        th, td {
+            display: block;
+            text-align: left;
+            font-size: $font-size_mid;
+        }
+
+        td {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__description {
+        font-size: $font-size_mid;
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+}
+
+footer {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: 10px;
+    }
+}
