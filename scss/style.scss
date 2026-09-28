@@ -9,6 +9,12 @@ $font-size_large: 18px;
 $font-size_mid: 14px;
 $section_margin: 60px;
 
+@mixin media-sp($bp) {
+    @media screen and (max-width: $bp) {
+        @content;
+    }
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     padding: 0;
@@ -36,6 +42,7 @@ body {
 
 .container {
     width: $width_content;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -53,7 +60,7 @@ header {
 }
 
 .main-visual__image {
-    width: $width_mv;
+    width: 100%;
 }
 
 .index {
@@ -85,15 +92,23 @@ header {
     &__container ul{
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
         justify-content: space-between;
 
         li {
             width: calc( (100% - 15px) / 2);
             margin-bottom: 15px;
+        }
 
-            img {
+        img {
+            max-width: 100%;
+        }
+
+        @include media-sp($bp_sp) {
+            display: block;
+
+            li {
                 width: 100%;
+                text-align: center;
             }
         }
     }
@@ -133,6 +148,30 @@ header {
 
     &__link {
         text-decoration: underline;
+    }
+
+    @include media-sp($bp_sp) {
+
+        &__container {
+            padding: 60px 16px;
+            justify-items: initial;
+
+            h1 {
+                justify-self: center;
+            }
+        }
+
+        &__text {
+            display: block;
+        }
+
+        &__info {
+            width: 100%;
+            border-right: 0;
+            border-bottom: 1px solid $font_color;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
     }
 }
 
